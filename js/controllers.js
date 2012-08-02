@@ -55,9 +55,6 @@ Ctrl = (function() {
 
     $scope.searchAction = function() {
       var user = $scope.searchField || 'erkobridee';
-      
-      console.log('search user: ' + user);
-
       $location.path(['', 'github', user, ''].join('/'));
     }
 
@@ -82,15 +79,26 @@ Ctrl = (function() {
 
     // access parent scope function
     $scope.updateSearchUrl(urlPath);
-    console.log( urlPath );
+   
+    GithubResource.get(
+      {user: userParam, repo: ''}, 
+      function(res) {
+        $scope.user = res;
+      }
+    );
 
-    $scope.user = GithubResource.get({user: userParam, repo: ''});
-
-    $scope.repos = GithubResource.get({user: userParam});
-
-    $scope.gists = GithubResource.get({
+    GithubResource.get(
+      {user: userParam},
+      function(res) {
+        $scope.repos = res;
+      }
+    );
+    
+    GithubResource.get({
       'user': userParam,
       'repo': 'gists'
+    }, function(res) {
+      $scope.gists = res;
     });
     
     $scope.publicRepoForms = {
@@ -133,22 +141,25 @@ Ctrl = (function() {
 
     // access parent scope function
     $scope.updateSearchUrl(urlPath);
-    console.log( urlPath );
-
-    $scope.repoInfo = GithubResource.get({
+    
+    GithubResource.get({
       'query': 'repos',
       'user': userParam,
       'repo': repoParam
+    }, function(res) {
+      $scope.repoInfo = res;
     });
 
     $scope.watchForms = watchForms;
     $scope.forkForms = forkForms;
 
-    $scope.contributors = GithubResource.get({
+    GithubResource.get({
       'query': 'repos',
       'user': userParam,
       'repo': repoParam,
       'spec': 'contributors'
+    }, function(res) {
+      $scope.contributors = res;
     });  
 
     //---
