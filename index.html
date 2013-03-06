@@ -1,80 +1,62 @@
-<!doctype html>
-<html ng-app="GithubApp" id="ng-app">
-<head>
-  <meta charset="utf-8">
-  <title>AngularJS - GitHub Info</title>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="GitHub User Info">
-  <meta name="author" content="Erko Bridee">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-  <!-- Le styles -->
-  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-  <style type="text/css">body { padding-top: 60px; padding-bottom: 40px; }</style>
-  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-  <link href="css/app.css" rel="stylesheet" type="text/css">
+    <title>Angularjs-github-info by erkobridee</title>
+  </head>
 
-  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+  <body>
 
-  <!-- Le fav and touch icons -->
-  <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/images/favicon.ico">
-  <link 
-    rel="apple-touch-icon-precomposed" sizes="144x144" 
-    href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
-  <link 
-    rel="apple-touch-icon-precomposed" sizes="114x114" 
-    href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
-  <link 
-    rel="apple-touch-icon-precomposed" sizes="72x72" 
-    href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
-  <link 
-    rel="apple-touch-icon-precomposed" 
-    href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
-
-</head>
-<body ng-controller="ctrl.App">
-
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
+    <header>
       <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="#">AngularJS - GitHub Info</a>
-        <div class="nav-collapse">
-          <ul class="nav">
-            <li class="{{searchNotActive}}active"><a ng-href="#{{searchUrlPath}}"><i class="icon-search icon-white"></i> Search</a></li>
-            <li class="{{aboutNotActive}}active"><a href="#/about"><i class="icon-question-sign icon-white"></i> About</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+        <h1>Angularjs-github-info</h1>
+        <h2>prove of concept using angularjs accessing github api</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/erkobridee/angularjs-github-info/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/erkobridee/angularjs-github-info/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/erkobridee/angularjs-github-info" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
       </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h3>Welcome to GitHub Pages.</h3>
+
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
+
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+
+<h3>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      </section>
     </div>
-  </div>  
 
-  <div class="container">
-    <div id="github-app" ng-view></div>
-  </div>
-
-  <a href="https://github.com/erkobridee/angularjs-github-info" ng-show="showForkBelt"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-
-  <!-- JQuery Support to Twitter Bootstrap -->
-  <script src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
-  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
-
-  <!-- AngularJS resources -->
-  <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
-  <script src="http://code.angularjs.org/angular-resource-1.0.1.min.js"></script>
-
-  <!-- Application scripts -->
-  <script src="js/app.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/components.js"></script>
-
-</body>
+    
+  </body>
 </html>
